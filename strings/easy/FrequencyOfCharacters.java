@@ -1,4 +1,4 @@
-package Strings.easy;
+package strings.easy;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
