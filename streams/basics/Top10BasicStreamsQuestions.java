@@ -1,6 +1,7 @@
 package streams.basics;
 
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
@@ -38,5 +39,19 @@ public class Top10BasicStreamsQuestions {
         List<Integer> duplicateNos = Arrays.asList(1, 1, 3, 4, 5, 5, 6, 7, 8, 9, 8, 6, 7);
         duplicateNos = duplicateNos.stream().distinct().toList();
         System.out.println(duplicateNos);
+
+        //Sort numbers in Asc and Desc
+        List<Integer> numbersList = Arrays.asList(5, 2, 8, 1, 3);
+        numbersList = numbersList.stream().sorted().toList();
+        System.out.println("Sorted ascending " + numbersList);
+
+        numbersList = numbersList.stream().sorted(Comparator.reverseOrder()).toList();
+        System.out.println("Sorted Descending " + numbersList);
+        // Find maximum number
+        Integer maxNum = numbersList.stream().max(Comparator.comparingInt(Integer::intValue)).orElse(0);
+        System.out.println("Maximum Number " + maxNum);
+
+        Integer minNum = numbersList.stream().min(Comparator.comparingInt(Integer::intValue)).orElse(0);
+        System.out.println("Min No " + minNum);
     }
 }
