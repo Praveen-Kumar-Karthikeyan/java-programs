@@ -53,5 +53,23 @@ public class Top10BasicStreamsQuestions {
 
         Integer minNum = numbersList.stream().min(Comparator.comparingInt(Integer::intValue)).orElse(0);
         System.out.println("Min No " + minNum);
+
+//        Count strings starting with "A"
+        List<String> listOfNames = Arrays.asList("Apple", "Amazon", "Java", "Angular", "Spring");
+
+        Long namesAndFreq =
+                listOfNames.stream().filter(item -> item.startsWith("A")).count();
+        System.out.println(namesAndFreq);
+
+        // Find First element greater than 5
+        List<Integer> dataPoints = Arrays.asList(5, 2, 8, 1, 3);
+
+        Integer greaterThan5 = dataPoints
+                .stream()
+                .filter(number -> number > 5)
+                .findFirst()
+                .orElse(0);
+        System.out.println("secondGreaterElement " + greaterThan5);
     }
+
 }
