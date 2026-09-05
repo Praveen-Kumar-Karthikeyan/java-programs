@@ -56,7 +56,7 @@ public class BasicInterviewProblemsUsingStreams {
 
         // Join strings using coma
         List<String> stringList = Arrays.asList("Java", "Spring", "Kafka");
-        String combinedString = stringList.stream().collect(Collectors.joining(","));
+        String combinedString = String.join(",", stringList);
         System.out.println("combinedString " + combinedString);
 
         // Find longest string
