@@ -3,7 +3,6 @@ package streams;
 import streams.dto.Employee;
 import streams.utils.EmployeeDataSupplier;
 
-import javax.swing.text.html.Option;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -61,11 +60,10 @@ public class EmployeeBasedStreamsPrograms {
         System.out.println("averageSalByDept " + averageSalByDept);
 
         // Find department having highest average salary
-        OptionalDouble highestAvgSalByDept = employeeList.stream()
+        Optional<Map.Entry<String, Double>> highestAvgSalByDept = employeeList.stream()
                 .collect(Collectors.groupingBy(Employee::getDepartment, Collectors.averagingLong(Employee::getSalary)))
-                .values()
-                .stream().mapToDouble(v -> v)
-                .max();
+                .entrySet()
+                .stream().max(Map.Entry.comparingByValue());
 
         System.out.println("highestAvgSalByDept" + highestAvgSalByDept);
 
