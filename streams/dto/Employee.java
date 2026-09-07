@@ -53,9 +53,9 @@ public class Employee {
                 "empName='" + empName + '\'' +
                 ", empId=" + empId +
                 ", salary=" + salary +
+                ", department='" + department + '\'' +
+                ", age=" + age +
                 ", joiningDate=" + joiningDate +
                 '}';
     }
-
-
 }

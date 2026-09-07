@@ -16,11 +16,13 @@ public class EmployeeDataSupplier {
         Employee employeeTwo = new Employee("Mike", 102, 68000L, "Testing", 25, LocalDate.of(1998, 12, 23));
         Employee employeeThree = new Employee("Kim Wexler", 103, 88000L, "Developer", 34, LocalDate.of(1999, 10, 2));
         Employee employeeFour = new Employee("Gustavo", 104, 987651L, "Testing", 39, LocalDate.of(1996, 1, 1));
+        Employee employeeFive = new Employee("Laloo Salamanca", 105, 987651L, "Developer", 38, LocalDate.of(1995, 12, 21));
         List<Employee> listOfEmployees = new ArrayList<>();
         listOfEmployees.add(employeeOne);
         listOfEmployees.add(employeeTwo);
         listOfEmployees.add(employeeThree);
         listOfEmployees.add(employeeFour);
+        listOfEmployees.add(employeeFive);
         return listOfEmployees;
     }
 
@@ -67,7 +69,6 @@ public class EmployeeDataSupplier {
                 .stream()
                 .max(Map.Entry.comparingByValue());
         System.out.println(highestAvgSalByDep.orElse(null));
-
 
 
     }

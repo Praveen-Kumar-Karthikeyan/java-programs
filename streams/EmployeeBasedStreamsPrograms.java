@@ -4,6 +4,7 @@ import streams.dto.Employee;
 import streams.utils.EmployeeDataSupplier;
 
 import java.util.*;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class EmployeeBasedStreamsPrograms {
@@ -67,6 +68,12 @@ public class EmployeeBasedStreamsPrograms {
 
         System.out.println("highestAvgSalByDept" + highestAvgSalByDept);
 
-
+        List<String> alphabets =
+                Arrays.asList("a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z");
+        List<String> vowels = List.of("a", "e", "i", "o", "u");
+        Predicate<String> isVowels = vowels::contains;
+        Map<Boolean, List<String>> vowelsAndConsonants =
+                alphabets.stream().collect(Collectors.partitioningBy(isVowels));
+        System.out.println("Vowels " + vowelsAndConsonants.get(true) + " Consonants " + vowelsAndConsonants.get(false));
     }
 }
